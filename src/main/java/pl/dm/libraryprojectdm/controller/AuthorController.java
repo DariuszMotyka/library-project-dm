@@ -18,4 +18,10 @@ public class AuthorController {
         this.authorService = authorService;
     }
 
+    @GetMapping("/list")
+    public String showAllAuthors(Model model){
+        model.addAttribute("authors",authorService.findAll());
+        return "authorList";
+    }
+
 }
