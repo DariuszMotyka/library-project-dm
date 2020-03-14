@@ -27,7 +27,7 @@
         </tr>
         </tbody>
     </table>
-    <form action="author/delete" method="post">
+    <form action="/author/delete" method="post">
         <table class="table table-hover">
             <thead>
             <tr>
@@ -48,7 +48,7 @@
             -->
             <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                 <div class="btn-group" role="group" aria-label="First group">
-                    <a href="/author/add"><input type="button" class="btn btn-secondary" name="action" value="ADD"></a>
+                    <a href="/author/add/form"><input type="button" class="btn btn-secondary" name="action" value="ADD"></a>
                     <a href="/author/edit"><input type="button" class="btn btn-secondary" name="action"
                                                   value="EDIT"></a>
                     <input type="submit" class="btn btn-secondary" name="action" value="DELETE">
