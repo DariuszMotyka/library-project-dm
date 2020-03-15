@@ -1,5 +1,7 @@
 package pl.dm.libraryprojectdm.service;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.dm.libraryprojectdm.model.Author;
@@ -9,6 +11,7 @@ import java.util.List;
 
 @Service
 public class AuthorService implements IAuthorService {
+
 
     private AuthorRepository authorRepository;
 
@@ -23,6 +26,11 @@ public class AuthorService implements IAuthorService {
     }
 
     @Override
+    public Author findAuthorById(int id) {
+        return authorRepository.findAll().get(id);
+    }
+
+    @Override
     public void save(Author author) {
         authorRepository.save(author);
     }
@@ -30,5 +38,12 @@ public class AuthorService implements IAuthorService {
     @Override
     public void delete(Long id) {
         authorRepository.deleteById(id);
+    }
+
+    @Override
+    public void update(Author author) {
+        authorRepository.findAll().get(author.getId().intValue()).setFirstName(author.getFirstName());
+        authorRepository.findAll().get(author.getId().intValue()).setLastName(author.getLastName());
+        //authorRepository.findAll().add();
     }
 }

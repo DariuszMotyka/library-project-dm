@@ -9,8 +9,12 @@ public interface IAuthorService {
 
     List<Author> findAll();
 
+    Author findAuthorById(int id);
+
     void save(Author author);
 
     void delete(Long id);
+
+    void update(Author author);
 
 }

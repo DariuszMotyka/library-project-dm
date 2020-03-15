@@ -49,8 +49,6 @@
             <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                 <div class="btn-group" role="group" aria-label="First group">
                     <a href="/author/add/form"><input type="button" class="btn btn-secondary" name="action" value="ADD"></a>
-                    <a href="/author/edit"><input type="button" class="btn btn-secondary" name="action"
-                                                  value="EDIT"></a>
                     <input type="submit" class="btn btn-secondary" name="action" value="DELETE">
                     <!--<button type="button" class="btn btn-secondary">4</button> -->
                 </div>
@@ -65,13 +63,22 @@
 
 
             <c:forEach var="author" items="${authors}" varStatus="loop">
+
+                <c:url var="editLink" value="/author/edit/form">
+                    <c:param name="authorEditId" value="${author.id}"/>
+                </c:url>
+
                 <tr>
                     <th scope="row">${loop.index + 1}</th>
                     <td>${author.firstName}</td>
                     <td>${author.lastName}</td>
                     <td><input class="form-check-input" type="radio" name="authorId" value="${author.id}" checked></td>
+                    <td>
+                        <a href="${editLink}">Edit</a>
+                    </td>
                 </tr>
             </c:forEach>
+
             </tbody>
         </table>
     </form>
