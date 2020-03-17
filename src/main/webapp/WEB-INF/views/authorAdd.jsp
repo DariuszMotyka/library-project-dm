@@ -14,11 +14,11 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="authorFirstName">First name</label>
-                    <input type="text" class="form-control" id="authorFirstName" name="firstName" value="${author.firstName}">
+                    <input type="text" class="form-control" required="true" id="authorFirstName" name="firstName" value="${author.firstName}">
                 </div>
                 <div class="form-group">
                     <label for="authorLastName">Last name</label>
-                    <input type="text" class="form-control" id="authorLastName" name="lastName" value="${author.lastName}">
+                    <input type="text" class="form-control" required="true" id="authorLastName" name="lastName" value="${author.lastName}">
                 </div>
             </div>
         </div>

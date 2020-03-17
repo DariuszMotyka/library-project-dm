@@ -41,9 +41,11 @@ public class AuthorService implements IAuthorService {
     }
 
     @Override
-    public void update(Author author) {
-        authorRepository.findAll().get(author.getId().intValue()).setFirstName(author.getFirstName());
-        authorRepository.findAll().get(author.getId().intValue()).setLastName(author.getLastName());
-        //authorRepository.findAll().add();
+    public void update(Long id, Author author) {
+        if(author != null && id != null){
+            authorRepository.getOne(id).setFirstName(author.getFirstName());
+            authorRepository.getOne(id).setLastName(author.getLastName());
+            authorRepository.flush();
+        }
     }
 }

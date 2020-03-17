@@ -19,16 +19,6 @@ public class Author implements Serializable {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Override
-    public String
-    toString() {
-        return "Author{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
-    }
-
     public Long getId() {
         return id;
     }
@@ -51,5 +41,14 @@ public class Author implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }

@@ -52,10 +52,8 @@ public class AuthorController {
     }
 
     @PostMapping("/edit")
-    public String editAuthor(@ModelAttribute Author author) {
-        authorService.delete(author.getId());
-        authorService.save(author);
-        //authorService.update(author);
+    public String editAuthor(@ModelAttribute Author author, @RequestParam Long authorIdToEdit) {
+        authorService.update(authorIdToEdit,author);
         return "redirect:/author/list";
     }
 
