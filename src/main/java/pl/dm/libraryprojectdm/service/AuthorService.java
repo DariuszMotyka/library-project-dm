@@ -26,8 +26,8 @@ public class AuthorService implements IAuthorService {
     }
 
     @Override
-    public Author findAuthorById(int id) {
-        return authorRepository.findAll().get(id);
+    public Author findAuthorById(Long id) {
+        return authorRepository.findById(id).get();
     }
 
     @Override
@@ -42,9 +42,9 @@ public class AuthorService implements IAuthorService {
 
     @Override
     public void update(Long id, Author author) {
-        if(author != null && id != null){
-            authorRepository.getOne(id).setFirstName(author.getFirstName());
-            authorRepository.getOne(id).setLastName(author.getLastName());
+        if (author != null && id != null) {
+            authorRepository.findById(id).get().setFirstName(author.getFirstName());
+            authorRepository.findById(id).get().setLastName(author.getLastName());
             authorRepository.flush();
         }
     }

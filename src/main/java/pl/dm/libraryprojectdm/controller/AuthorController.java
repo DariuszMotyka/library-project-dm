@@ -46,14 +46,14 @@ public class AuthorController {
 
     @GetMapping("/edit/form")
     public String editAuthorForm(@RequestParam Long authorEditId, Model model) {
-        Author authorToEdit = authorService.findAuthorById(authorEditId.intValue() - 1);
-        model.addAttribute("author", authorToEdit);
+        Author authorToEdit = authorService.findAuthorById(authorEditId);
+        model.addAttribute("authorToEdit", authorToEdit);
         return "authorEdit";
     }
 
     @PostMapping("/edit")
     public String editAuthor(@ModelAttribute Author author, @RequestParam Long authorIdToEdit) {
-        authorService.update(authorIdToEdit,author);
+        authorService.update(authorIdToEdit, author);
         return "redirect:/author/list";
     }
 
