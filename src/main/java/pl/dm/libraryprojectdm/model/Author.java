@@ -10,7 +10,7 @@ public class Author implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_author")
+    @Column(name = "author_id")
     private Long id;
 
     @Column(name = "first_name", nullable = false)

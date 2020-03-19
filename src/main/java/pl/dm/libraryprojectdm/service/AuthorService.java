@@ -37,7 +37,9 @@ public class AuthorService implements IAuthorService {
 
     @Override
     public void delete(Long id) {
-        authorRepository.deleteById(id);
+        if(id != null){
+            authorRepository.deleteById(id);
+        }
     }
 
     @Override

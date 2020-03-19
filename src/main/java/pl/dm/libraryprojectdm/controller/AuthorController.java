@@ -39,7 +39,14 @@ public class AuthorController {
 
     @PostMapping("/delete")
     public String deleteAuthor(@RequestParam Long authorId) {
-        authorService.delete(authorId);
+        if (authorId != null) {
+            try {
+                authorService.delete(authorId);
+                return "redirect:/author/list";
+            } catch (Exception e) {
+                System.out.println("Error");
+            }
+        }
         return "redirect:/author/list";
     }
 
