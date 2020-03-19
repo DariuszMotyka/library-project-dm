@@ -19,6 +19,9 @@ public class Author implements Serializable {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
+    public Author() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -51,4 +54,5 @@ public class Author implements Serializable {
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
+
 }
