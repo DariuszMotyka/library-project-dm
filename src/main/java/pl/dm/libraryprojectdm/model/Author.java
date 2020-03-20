@@ -3,6 +3,7 @@ package pl.dm.libraryprojectdm.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "author")
@@ -18,6 +19,9 @@ public class Author implements Serializable {
 
     @Column(name = "last_name", nullable = false)
     private String lastName;
+
+    @OneToMany(mappedBy = "author",fetch = FetchType.EAGER)
+    private Set<Book> books;
 
     public Author() {
     }
@@ -46,13 +50,21 @@ public class Author implements Serializable {
         this.lastName = lastName;
     }
 
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
+
     @Override
     public String toString() {
         return "Author{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", books=" + books +
                 '}';
     }
-
 }

@@ -29,6 +29,9 @@ public class Book implements Serializable {
     @Column(name = "category")
     private BookType category;
 
+    @Column(name = "quantity")
+    private Long quantity;
+
     @ManyToOne
     @JoinColumn(name = "author_id")
     private Author author;
@@ -36,8 +39,6 @@ public class Book implements Serializable {
     @Transient
     private Long authorId;
 
-    @Column(name = "quantity")
-    private Long quantity;
 
     public Book() {
     }
@@ -82,12 +83,12 @@ public class Book implements Serializable {
         this.category = category;
     }
 
-    public Author getAuthor() {
-        return author;
+    public Long getQuantity() {
+        return quantity;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setQuantity(Long quantity) {
+        this.quantity = quantity;
     }
 
     public Long getAuthorId() {
@@ -98,12 +99,12 @@ public class Book implements Serializable {
         this.authorId = authorId;
     }
 
-    public Long getQuantity() {
-        return quantity;
+    public Author getAuthor() {
+        return author;
     }
 
-    public void setQuantity(Long quantity) {
-        this.quantity = quantity;
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
     @Override
@@ -114,9 +115,9 @@ public class Book implements Serializable {
                 ", releaseDate=" + releaseDate +
                 ", isbn='" + isbn + '\'' +
                 ", category=" + category +
-                ", author=" + author +
-                ", authorId=" + authorId +
                 ", quantity=" + quantity +
+                ", authorId=" + authorId +
+                ", author=" + author +
                 '}';
     }
 }

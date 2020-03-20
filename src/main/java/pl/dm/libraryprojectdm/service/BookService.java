@@ -1,14 +1,24 @@
 package pl.dm.libraryprojectdm.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import pl.dm.libraryprojectdm.model.Book;
+import pl.dm.libraryprojectdm.repository.AuthorRepository;
 import pl.dm.libraryprojectdm.repository.BookRepository;
 
 import java.util.List;
 
+@Service
 public class BookService implements IBookService {
 
     private BookRepository bookRepository;
+    private AuthorRepository authorRepository;
 
+    @Autowired
+    public BookService(BookRepository bookRepository, AuthorRepository authorRepository) {
+        this.bookRepository = bookRepository;
+        this.authorRepository = authorRepository;
+    }
 
     @Override
     public List<Book> findAll() {
