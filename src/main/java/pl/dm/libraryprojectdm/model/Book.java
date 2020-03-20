@@ -36,6 +36,9 @@ public class Book implements Serializable {
     @Transient
     private Long authorId;
 
+    @Column(name = "quantity")
+    private Long quantity;
+
     public Book() {
     }
 
@@ -95,6 +98,14 @@ public class Book implements Serializable {
         this.authorId = authorId;
     }
 
+    public Long getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Long quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -105,6 +116,7 @@ public class Book implements Serializable {
                 ", category=" + category +
                 ", author=" + author +
                 ", authorId=" + authorId +
+                ", quantity=" + quantity +
                 '}';
     }
 }
