@@ -61,7 +61,7 @@
 
             <c:forEach var="book" items="${books}" varStatus="loop">
 
-                <c:url var="editLink" value="/author/edit/form">
+                <c:url var="editLink" value="/book/edit/form">
                     <c:param name="bookEditId" value="${book.id}"/>
                 </c:url>
 

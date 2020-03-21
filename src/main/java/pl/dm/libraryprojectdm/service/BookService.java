@@ -2,11 +2,16 @@ package pl.dm.libraryprojectdm.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.dm.libraryprojectdm.model.Author;
 import pl.dm.libraryprojectdm.model.Book;
+import pl.dm.libraryprojectdm.model.BookType;
 import pl.dm.libraryprojectdm.repository.AuthorRepository;
 import pl.dm.libraryprojectdm.repository.BookRepository;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class BookService implements IBookService {
@@ -32,6 +37,8 @@ public class BookService implements IBookService {
 
     @Override
     public void save(Book book) {
+        Optional<Author> author = authorRepository.findById(book.getAuthorId());
+        author.ifPresent(a -> book.setAuthor(a));
         bookRepository.save(book);
     }
 
@@ -51,5 +58,10 @@ public class BookService implements IBookService {
             bookRepository.findById(id).get().setQuantity(book.getQuantity());
             bookRepository.flush();
         }
+    }
+
+    @Override
+    public List<String> findAllCategories() {
+        return Arrays.stream(BookType.values()).map(Enum::name).collect(Collectors.toList());
     }
 }

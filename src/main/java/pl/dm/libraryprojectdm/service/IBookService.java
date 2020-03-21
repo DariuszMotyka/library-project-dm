@@ -16,5 +16,6 @@ public interface IBookService {
 
     void update(Long id, Book book);
 
+    List<String> findAllCategories();
 
 }
