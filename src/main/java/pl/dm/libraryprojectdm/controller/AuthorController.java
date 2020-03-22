@@ -38,7 +38,7 @@ public class AuthorController {
     }
 
     @PostMapping("/delete")
-    public String deleteAuthor(@RequestParam Long authorId) {
+    public String deleteAuthor(@RequestParam(required = false) Long authorId) {
         if (authorId != null && authorService.findAuthorById(authorId).getBooks().size() == 0) {
             try {
                 authorService.delete(authorId);
