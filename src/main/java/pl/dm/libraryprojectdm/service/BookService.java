@@ -53,7 +53,7 @@ public class BookService implements IBookService {
             bookRepository.findById(id).get().setTitle(book.getTitle());
             bookRepository.findById(id).get().setIsbn(book.getIsbn());
             bookRepository.findById(id).get().setCategory(book.getCategory());
-            bookRepository.findById(id).get().setReleaseDate(book.getReleaseDate());
+            bookRepository.findById(id).get().setRelease(book.getRelease());
             bookRepository.findById(id).get().setAuthorId(book.getAuthorId());
             bookRepository.findById(id).get().setQuantity(book.getQuantity());
             bookRepository.flush();

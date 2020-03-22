@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     <label for="bookRelease">Release</label>
-                    <input type="date" class="form-control" id="bookRelease" name="releasedate" value="${book.releaseDate}">
+                    <input type="date" class="form-control" id="bookRelease" name="release" value="${book.release}">
                 </div>
             </div>
 

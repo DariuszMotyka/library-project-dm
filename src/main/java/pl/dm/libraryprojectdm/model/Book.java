@@ -18,9 +18,10 @@ public class Book implements Serializable {
     @Column(name = "title")
     private String title;
 
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "release_date")
-    private LocalDate releaseDate;
+    private LocalDate release;
 
     @Column(name = "isbn")
     private String isbn;
@@ -59,12 +60,12 @@ public class Book implements Serializable {
         this.title = title;
     }
 
-    public LocalDate getReleaseDate() {
-        return releaseDate;
+    public LocalDate getRelease() {
+        return release;
     }
 
-    public void setReleaseDate(LocalDate releaseDate) {
-        this.releaseDate = releaseDate;
+    public void setRelease(LocalDate release) {
+        this.release = release;
     }
 
     public String getIsbn() {
@@ -112,7 +113,7 @@ public class Book implements Serializable {
         return "Book{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", releaseDate=" + releaseDate +
+                ", releaseDate=" + release +
                 ", isbn='" + isbn + '\'' +
                 ", category=" + category +
                 ", quantity=" + quantity +

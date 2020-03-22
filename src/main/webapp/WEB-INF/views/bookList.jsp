@@ -69,7 +69,7 @@
                     <th scope="row">${loop.index + 1}</th>
                     <td>${book.title}</td>
                     <td>${book.category}</td>
-                    <td>${book.releaseDate}</td>
+                    <td>${book.release}</td>
                     <td>${book.isbn}</td>
                     <td>${book.author.firstName} ${book.author.lastName}</td>
                     <td>${book.quantity}</td>
