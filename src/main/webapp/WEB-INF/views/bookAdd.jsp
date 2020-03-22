@@ -14,16 +14,16 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="bookTitle">Title</label>
-                    <input type="text" class="form-control" id="bookTitle" name="title" value="${book.title}">
+                    <input type="text" class="form-control" required="true" id="bookTitle" name="title" value="${book.title}">
                 </div>
                 <div class="form-group">
                     <label for="bookIsbn">ISBN</label>
-                    <input type="text" class="form-control" id="bookIsbn" name="isbn" value="${book.isbn}">
+                    <input type="text" class="form-control" required="true" id="bookIsbn" name="isbn" value="${book.isbn}">
                 </div>
 
                 <div class="form-group">
-                    <label for="bookIsbn">Quantity</label>
-                    <input type="text" class="form-control" id="bookQuantity" name="quantity" value="${book.quantity}">
+                    <label for="bookQuantity">Quantity</label>
+                    <input type="number" class="form-control" required="true" id="bookQuantity"  name="quantity" value="${book.quantity}">
                 </div>
             </div>
 
@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     <label for="bookRelease">Release</label>
-                    <input type="date" class="form-control" id="bookRelease" name="release" value="${book.release}">
+                    <input type="date" class="form-control" required="true" id="bookRelease" name="release" value="${book.release}">
                 </div>
             </div>
 
