@@ -58,4 +58,21 @@ public class BookController {
         System.out.println("Error");
         return "redirect:/book/list";
     }
+
+    @GetMapping("/edit/form")
+    public String editBookForm(@RequestParam Long bookEditId, Model model) {
+        Book bookToEdit = bookService.findBookById(bookEditId);
+        List<Author> authors = authorService.findAll();
+        model.addAttribute("authors", authors);
+        model.addAttribute("categories", bookService.findAllCategories());
+        model.addAttribute("bookToEdit", bookToEdit);
+        return "bookEdit";
+    }
+
+    //TODO fix editBook method > save data to db
+    @PostMapping("/edit")
+    public String editBook(@ModelAttribute Book book, @RequestParam Long bookIdToEdit) {
+        bookService.update(bookIdToEdit, book);
+        return "redirect:/book/list";
+    }
 }
