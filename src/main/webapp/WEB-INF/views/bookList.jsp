@@ -18,7 +18,7 @@
             <th><a href="/book/list">Books</a></th>
             <th><a href="/rental/list">Renting</a></th>
             <th><a href="/settings/list">Settings</a></th>
-            <th><a>Logout</a></th>
+            <th><a href="/logout">Logout</a></th>
         </tr>
         </thead>
         <tbody>
