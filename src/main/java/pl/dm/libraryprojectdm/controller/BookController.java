@@ -69,7 +69,6 @@ public class BookController {
         return "bookEdit";
     }
 
-    //TODO fix editBook method > save data to db
     @PostMapping("/edit")
     public String editBook(@ModelAttribute Book book, @RequestParam Long bookIdToEdit) {
         bookService.update(bookIdToEdit, book);

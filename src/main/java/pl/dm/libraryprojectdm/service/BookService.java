@@ -50,11 +50,15 @@ public class BookService implements IBookService {
     @Override
     public void update(Long id, Book book) {
         if (book != null && id != null) {
+            Optional<Author> author = authorRepository.findById(book.getAuthorId());
+            author.ifPresent(a -> book.setAuthor(a));
+
             bookRepository.findById(id).get().setTitle(book.getTitle());
             bookRepository.findById(id).get().setIsbn(book.getIsbn());
             bookRepository.findById(id).get().setCategory(book.getCategory());
             bookRepository.findById(id).get().setRelease(book.getRelease());
             bookRepository.findById(id).get().setAuthorId(book.getAuthorId());
+            bookRepository.findById(id).get().setAuthor(book.getAuthor());
             bookRepository.findById(id).get().setQuantity(book.getQuantity());
             bookRepository.flush();
         }
